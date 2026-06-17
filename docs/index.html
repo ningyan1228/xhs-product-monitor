@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小红书公开商品卡片监控</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>小红书公开商品卡片监控</h1>
+        <p>仅展示公开笔记页面中可见的商品卡片数据</p>
+      </div>
+      <div class="stats" aria-live="polite">
+        <span id="totalCount">0</span>
+        <small>条记录</small>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar" aria-label="筛选和排序">
+        <label class="search">
+          <span>商品名搜索</span>
+          <input id="searchInput" type="search" placeholder="输入商品关键词" autocomplete="off" />
+        </label>
+        <label>
+          <span>排序</span>
+          <select id="sortSelect">
+            <option value="sold_desc">销量从高到低</option>
+            <option value="sold_asc">销量从低到高</option>
+            <option value="price_desc">价格从高到低</option>
+            <option value="price_asc">价格从低到高</option>
+            <option value="captured_desc">抓取时间最新</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>价格</th>
+              <th>已售数量</th>
+              <th>作者</th>
+              <th>笔记链接</th>
+              <th>抓取时间</th>
+            </tr>
+          </thead>
+          <tbody id="productRows">
+            <tr>
+              <td colspan="6" class="empty">正在加载数据...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
